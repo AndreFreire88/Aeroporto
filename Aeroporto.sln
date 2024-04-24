@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "Aeroporto\UI.csproj", "{50BC4BFA-7214-41D0-A600-E43AE14C878D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libary", "Libary\Libary.csproj", "{FF9B67E3-2DE6-4426-8A09-A401DC292B62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50BC4BFA-7214-41D0-A600-E43AE14C878D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BC4BFA-7214-41D0-A600-E43AE14C878D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BC4BFA-7214-41D0-A600-E43AE14C878D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BC4BFA-7214-41D0-A600-E43AE14C878D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9B67E3-2DE6-4426-8A09-A401DC292B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9B67E3-2DE6-4426-8A09-A401DC292B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9B67E3-2DE6-4426-8A09-A401DC292B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9B67E3-2DE6-4426-8A09-A401DC292B62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8126015E-62FB-4072-BF20-328BC4DB56C1}
+	EndGlobalSection
+EndGlobal
