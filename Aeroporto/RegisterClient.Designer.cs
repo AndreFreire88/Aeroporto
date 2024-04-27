@@ -34,11 +34,11 @@
             this.emailLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
             this.cellphoneLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.firstNameValue = new System.Windows.Forms.TextBox();
+            this.lastNameValue = new System.Windows.Forms.TextBox();
+            this.emailValue = new System.Windows.Forms.TextBox();
+            this.AddressValue = new System.Windows.Forms.TextBox();
+            this.CellphoneNumberValue = new System.Windows.Forms.TextBox();
             this.registerClientBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -97,40 +97,40 @@
             this.cellphoneLabel.TabIndex = 5;
             this.cellphoneLabel.Text = "Cellphone Number";
             // 
-            // textBox1
+            // firstNameValue
             // 
-            this.textBox1.Location = new System.Drawing.Point(252, 130);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 31);
-            this.textBox1.TabIndex = 6;
+            this.firstNameValue.Location = new System.Drawing.Point(252, 130);
+            this.firstNameValue.Name = "firstNameValue";
+            this.firstNameValue.Size = new System.Drawing.Size(162, 31);
+            this.firstNameValue.TabIndex = 6;
             // 
-            // textBox2
+            // lastNameValue
             // 
-            this.textBox2.Location = new System.Drawing.Point(252, 226);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 31);
-            this.textBox2.TabIndex = 7;
+            this.lastNameValue.Location = new System.Drawing.Point(252, 226);
+            this.lastNameValue.Name = "lastNameValue";
+            this.lastNameValue.Size = new System.Drawing.Size(162, 31);
+            this.lastNameValue.TabIndex = 7;
             // 
-            // textBox3
+            // emailValue
             // 
-            this.textBox3.Location = new System.Drawing.Point(252, 322);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(162, 31);
-            this.textBox3.TabIndex = 8;
+            this.emailValue.Location = new System.Drawing.Point(252, 322);
+            this.emailValue.Name = "emailValue";
+            this.emailValue.Size = new System.Drawing.Size(162, 31);
+            this.emailValue.TabIndex = 8;
             // 
-            // textBox4
+            // AddressValue
             // 
-            this.textBox4.Location = new System.Drawing.Point(252, 418);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(162, 31);
-            this.textBox4.TabIndex = 9;
+            this.AddressValue.Location = new System.Drawing.Point(252, 418);
+            this.AddressValue.Name = "AddressValue";
+            this.AddressValue.Size = new System.Drawing.Size(162, 31);
+            this.AddressValue.TabIndex = 9;
             // 
-            // textBox5
+            // CellphoneNumberValue
             // 
-            this.textBox5.Location = new System.Drawing.Point(252, 514);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(162, 31);
-            this.textBox5.TabIndex = 10;
+            this.CellphoneNumberValue.Location = new System.Drawing.Point(252, 514);
+            this.CellphoneNumberValue.Name = "CellphoneNumberValue";
+            this.CellphoneNumberValue.Size = new System.Drawing.Size(162, 31);
+            this.CellphoneNumberValue.TabIndex = 10;
             // 
             // registerClientBtn
             // 
@@ -149,11 +149,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(501, 665);
             this.Controls.Add(this.registerClientBtn);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.CellphoneNumberValue);
+            this.Controls.Add(this.AddressValue);
+            this.Controls.Add(this.emailValue);
+            this.Controls.Add(this.lastNameValue);
+            this.Controls.Add(this.firstNameValue);
             this.Controls.Add(this.cellphoneLabel);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.emailLabel);
@@ -179,11 +179,11 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.Label cellphoneLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox firstNameValue;
+        private System.Windows.Forms.TextBox lastNameValue;
+        private System.Windows.Forms.TextBox emailValue;
+        private System.Windows.Forms.TextBox AddressValue;
+        private System.Windows.Forms.TextBox CellphoneNumberValue;
         private System.Windows.Forms.Button registerClientBtn;
     }
 }

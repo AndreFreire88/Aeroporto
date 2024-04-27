@@ -72,6 +72,12 @@
     <Compile Include="RegisterClient.Designer.cs">
       <DependentUpon>RegisterClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterFlight.Designer.cs">
+      <DependentUpon>RegisterFlight.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BookFlight.resx">
       <DependentUpon>BookFlight.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterClient.resx">
       <DependentUpon>RegisterClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterFlight.resx">
+      <DependentUpon>RegisterFlight.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
