@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Aeroporto
 {
-    public partial class Form1 : Form
+    public partial class BookFlight : Form
     {
-        public Form1()
+        public BookFlight()
         {
             InitializeComponent();
         }
+
     }
 }
