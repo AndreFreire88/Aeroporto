@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Libary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 
 namespace Aeroporto
 {
@@ -16,7 +19,12 @@ namespace Aeroporto
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+
+            GlobalConfig.InitializeConnections(DatabaseType.Sql);
+
+            Application.Run(new RegisterClient());
+
+            //Application.Run(new Dashboard());
         }
     }
 }

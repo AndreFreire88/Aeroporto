@@ -37,7 +37,7 @@
             this.firstNameValue = new System.Windows.Forms.TextBox();
             this.lastNameValue = new System.Windows.Forms.TextBox();
             this.emailValue = new System.Windows.Forms.TextBox();
-            this.AddressValue = new System.Windows.Forms.TextBox();
+            this.addressValue = new System.Windows.Forms.TextBox();
             this.CellphoneNumberValue = new System.Windows.Forms.TextBox();
             this.registerClientBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -73,7 +73,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(62, 322);
+            this.emailLabel.Location = new System.Drawing.Point(62, 418);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(54, 25);
             this.emailLabel.TabIndex = 3;
@@ -82,7 +82,7 @@
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(62, 418);
+            this.addressLabel.Location = new System.Drawing.Point(62, 322);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(77, 25);
             this.addressLabel.TabIndex = 4;
@@ -113,17 +113,17 @@
             // 
             // emailValue
             // 
-            this.emailValue.Location = new System.Drawing.Point(252, 322);
+            this.emailValue.Location = new System.Drawing.Point(252, 418);
             this.emailValue.Name = "emailValue";
             this.emailValue.Size = new System.Drawing.Size(162, 31);
             this.emailValue.TabIndex = 8;
             // 
-            // AddressValue
+            // addressValue
             // 
-            this.AddressValue.Location = new System.Drawing.Point(252, 418);
-            this.AddressValue.Name = "AddressValue";
-            this.AddressValue.Size = new System.Drawing.Size(162, 31);
-            this.AddressValue.TabIndex = 9;
+            this.addressValue.Location = new System.Drawing.Point(252, 322);
+            this.addressValue.Name = "addressValue";
+            this.addressValue.Size = new System.Drawing.Size(162, 31);
+            this.addressValue.TabIndex = 9;
             // 
             // CellphoneNumberValue
             // 
@@ -141,6 +141,7 @@
             this.registerClientBtn.TabIndex = 11;
             this.registerClientBtn.Text = "Register Client";
             this.registerClientBtn.UseVisualStyleBackColor = true;
+            this.registerClientBtn.Click += new System.EventHandler(this.registerClientBtn_Click);
             // 
             // RegisterClient
             // 
@@ -150,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(501, 665);
             this.Controls.Add(this.registerClientBtn);
             this.Controls.Add(this.CellphoneNumberValue);
-            this.Controls.Add(this.AddressValue);
+            this.Controls.Add(this.addressValue);
             this.Controls.Add(this.emailValue);
             this.Controls.Add(this.lastNameValue);
             this.Controls.Add(this.firstNameValue);
@@ -162,7 +163,7 @@
             this.Controls.Add(this.registerClientLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegisterClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterClient";
@@ -182,7 +183,7 @@
         private System.Windows.Forms.TextBox firstNameValue;
         private System.Windows.Forms.TextBox lastNameValue;
         private System.Windows.Forms.TextBox emailValue;
-        private System.Windows.Forms.TextBox AddressValue;
+        private System.Windows.Forms.TextBox addressValue;
         private System.Windows.Forms.TextBox CellphoneNumberValue;
         private System.Windows.Forms.Button registerClientBtn;
     }
