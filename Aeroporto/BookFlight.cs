@@ -1,11 +1,13 @@
 ﻿using Aeroporto.Interfaces;
 using Libary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ namespace Aeroporto
     public partial class BookFlight : Form, IRegisterClientRequest, IRegisterBagRequest
     {
         private List<ClientModel> clients = GlobalConfig.Connection.GetClients_All();
+        private List<ClientModel> available = new List<ClientModel>();
 
         private FlightModel flight;
         IBookFlightRequest callingForm;
@@ -23,22 +26,39 @@ namespace Aeroporto
         public BookFlight(IBookFlightRequest caller, FlightModel model)
         {
             InitializeComponent();
+
             flight = model;
             flightNameLabel.Text = flight.FlightName;
             callingForm = caller;
+            ShowOnlyNotBooked();
             WireUpList();
             WireUpBags();
             WireUpInfo();
 
         }
 
-
-        private void WireUpList()
+        private void ShowOnlyNotBooked()
         {
             List<ClientModel> selectedClients = flight.Passengers.ToList();
 
+            available = clients;
+
+            for (int i = 0; i < available.Count; i++)
+            {
+                if (selectedClients.Any(m => m.ID_Passageiro == available[i].ID_Passageiro))
+                {
+                    available.RemoveAt(i);
+                    i--;
+                }
+            }
+
+        }
+
+        private void WireUpList()
+        {
+
             clientDropDown.DataSource = null;
-            clientDropDown.DataSource = clients;
+            clientDropDown.DataSource = available;
             clientDropDown.DisplayMember = nameof(ClientModel.FullName);
         }
 
@@ -86,7 +106,7 @@ namespace Aeroporto
         {
             ClientModel client = clientDropDown.SelectedItem as ClientModel;
             GlobalConfig.Connection.BookFlight(flight, client);
-            callingForm.ReservationComplete();
+            callingForm.ReservationComplete( client);
             Close();
         }
         private void deleteBagBtn_Click(object sender, EventArgs e)
@@ -95,24 +115,36 @@ namespace Aeroporto
 
             GlobalConfig.Connection.DeleteBag(bag);
 
-            UpdateInfo(0);
+            UpdateInfo(bag.ID_Passageiro);
         }
-        public void RegisterClientComplete()
+        public void RegisterClientComplete(ClientModel model)
         {
-            UpdateInfo(1);
+            UpdateInfo(model.ID_Passageiro);
         }
-        public void BagComplete()
+        public void BagComplete(BaggageModel model)
         {
-            UpdateInfo(0);
+            UpdateInfo(model.ID_Passageiro);
+
         }
-        private void UpdateInfo(byte type)
+        private void UpdateInfo(int id)
         {
             clients = GlobalConfig.Connection.GetClients_All();
+            ShowOnlyNotBooked();
             WireUpList();
-            if (type == 1)
+            int index = 0;
+
+            for (int i = 0; i < clients.Count; i++)
             {
-                clientDropDown.SelectedIndex = clientDropDown.Items.Count - 1;
+                if (clients[i].ID_Passageiro == id)
+                {
+                    index = i;
+                    break;
+                }
+
             }
+            clientDropDown.SelectedIndex = index;
+
+
             WireUpBags();
 
         }

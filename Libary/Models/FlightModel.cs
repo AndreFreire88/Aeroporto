@@ -15,8 +15,8 @@ namespace Libary
         public string Origem { get; set; }
         public string Destino { get; set; }
 
-        public string DataHoraPartida { get; set; }
-        public string DataHoraChegada { get; set; }
+        public DateTime DataHoraPartida { get; set; }
+        public DateTime DataHoraChegada { get; set; }
         public int Capacidade { get; set; }
 
         public List<ClientModel> Passengers { get; set; } = new List<ClientModel>();
@@ -29,8 +29,10 @@ namespace Libary
             CompanhiaAerea = companyName;
             Origem = whereFrom;
             Destino = whereTo;
-            DataHoraPartida = departureAt;
-            DataHoraChegada = arriveAt;
+            DateTime.TryParse(departureAt, out DateTime partida);
+            DataHoraPartida = partida;
+            DateTime.TryParse(arriveAt, out DateTime chegada);
+            DataHoraChegada = chegada;
             int.TryParse(capacity, out int pa);
             Capacidade = pa;
         }

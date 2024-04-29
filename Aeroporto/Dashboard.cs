@@ -39,8 +39,8 @@ namespace Aeroporto
                 companhiaValueLabel.Text = model.CompanhiaAerea;
                 origemValueLabel.Text = model.Origem;
                 destinoValueLabel.Text = model.Destino;
-                HoraDePartidadeValueLabel.Text = model.DataHoraPartida.Substring(0, model.DataHoraPartida.Length - 3);
-                horaDeChegadaValueLabel.Text = model.DataHoraChegada.Substring(0, model.DataHoraChegada.Length - 3);
+                HoraDePartidadeValueLabel.Text = model.DataHoraPartida.ToString().Substring(0, model.DataHoraChegada.ToString().Length - 2);
+                horaDeChegadaValueLabel.Text = model.DataHoraChegada.ToString().Substring(0, model.DataHoraChegada.ToString().Length - 2);
                 capacidadeValueLabel.Text = model.Capacidade.ToString();
 
                 flightNameLabel.Text = model.FlightName;
@@ -107,9 +107,23 @@ namespace Aeroporto
             WireUpInfo();
         }
 
-        public void ReservationComplete()
+        public void ReservationComplete(ClientModel model)
         {
             Updateinfo(0);
+
+            FlightModel flightModel = flightDropDown.SelectedItem as FlightModel;
+            List<ClientModel> clients = flightModel.Passengers.ToList();
+            int index = 0;
+
+            for (int i = 0; i < clients.Count; i++)
+            {
+                if (clients[i].ID_Passageiro == model.ID_Passageiro)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            passangerListBox.SelectedIndex = index;
         }
     }
 }

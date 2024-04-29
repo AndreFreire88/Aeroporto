@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Aeroporto.Interfaces
 {
     public interface IRegisterBagRequest
     {
-        void BagComplete();
+        void BagComplete(BaggageModel model);
 
     }
 }

@@ -25,11 +25,26 @@ namespace Aeroporto
 
         private void registerBagBtn_Click(object sender, EventArgs e)
         {
-            BaggageModel model = new BaggageModel(Passanger.ID_Passageiro, pesoValue.Text);
-            GlobalConfig.Connection.CreateBag(model);
-            callingform.BagComplete();
+            if (ValidateForm())
+            {
+                BaggageModel model = new BaggageModel(Passanger.ID_Passageiro, pesoValue.Text);
+                GlobalConfig.Connection.CreateBag(model);
+                callingform.BagComplete(model);
 
-            Close();
+                Close();
+            }
+            else
+                MessageBox.Show("Error","Error");
+
+        }
+
+        private bool ValidateForm()
+        {
+
+            if (!decimal.TryParse(pesoValue.Text, out decimal peso) || peso <= 0)
+                return false;
+
+            return true;
         }
     }
 }
