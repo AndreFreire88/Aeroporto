@@ -9,5 +9,16 @@ namespace Libary.DataAccess
     public interface IDataConnection
     {
         void CreateClient(ClientModel model); 
+
+        List<ClientModel> GetClients_All();
+
+        void CreateBag(BaggageModel model);
+
+        void CreateFlight(FlightModel model);
+
+        List<FlightModel> GetFlights_All();
+        
+     
     }
+
 }

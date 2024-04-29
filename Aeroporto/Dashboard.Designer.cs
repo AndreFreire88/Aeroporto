@@ -49,7 +49,7 @@
             this.CreateFlightBtn = new System.Windows.Forms.Button();
             this.passangerListBox = new System.Windows.Forms.ListBox();
             this.removePassenger = new System.Windows.Forms.Button();
-            this.flightName = new System.Windows.Forms.Label();
+            this.flightNameLabel = new System.Windows.Forms.Label();
             this.addPassager = new System.Windows.Forms.Button();
             this.flightInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,7 @@
             this.flightDropDown.Name = "flightDropDown";
             this.flightDropDown.Size = new System.Drawing.Size(763, 33);
             this.flightDropDown.TabIndex = 5;
+            this.flightDropDown.SelectedIndexChanged += new System.EventHandler(this.flightDropDown_SelectedIndexChanged);
             // 
             // flightInfoGroupBox
             // 
@@ -238,6 +239,7 @@
             this.CreateFlightBtn.TabIndex = 7;
             this.CreateFlightBtn.Text = "Register Flight";
             this.CreateFlightBtn.UseVisualStyleBackColor = true;
+            this.CreateFlightBtn.Click += new System.EventHandler(this.CreateFlightBtn_Click);
             // 
             // passangerListBox
             // 
@@ -260,15 +262,15 @@
             this.removePassenger.Text = "Remove Passenger";
             this.removePassenger.UseVisualStyleBackColor = true;
             // 
-            // flightName
+            // flightNameLabel
             // 
-            this.flightName.AutoSize = true;
-            this.flightName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightName.Location = new System.Drawing.Point(299, 34);
-            this.flightName.Name = "flightName";
-            this.flightName.Size = new System.Drawing.Size(193, 38);
-            this.flightName.TabIndex = 12;
-            this.flightName.Text = "<flightName>";
+            this.flightNameLabel.AutoSize = true;
+            this.flightNameLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flightNameLabel.Location = new System.Drawing.Point(299, 34);
+            this.flightNameLabel.Name = "flightNameLabel";
+            this.flightNameLabel.Size = new System.Drawing.Size(193, 38);
+            this.flightNameLabel.TabIndex = 12;
+            this.flightNameLabel.Text = "<flightName>";
             // 
             // addPassager
             // 
@@ -287,7 +289,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(801, 724);
             this.Controls.Add(this.addPassager);
-            this.Controls.Add(this.flightName);
+            this.Controls.Add(this.flightNameLabel);
             this.Controls.Add(this.removePassenger);
             this.Controls.Add(this.passangerListBox);
             this.Controls.Add(this.CreateFlightBtn);
@@ -317,7 +319,7 @@
         private System.Windows.Forms.Button CreateFlightBtn;
         private System.Windows.Forms.ListBox passangerListBox;
         private System.Windows.Forms.Button removePassenger;
-        private System.Windows.Forms.Label flightName;
+        private System.Windows.Forms.Label flightNameLabel;
         private System.Windows.Forms.Button addPassager;
         private System.Windows.Forms.Label horaDeChegadaValueLabel;
         private System.Windows.Forms.Label HoraDePartidadeValueLabel;

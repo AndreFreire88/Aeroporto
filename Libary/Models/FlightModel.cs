@@ -8,18 +8,39 @@ namespace Libary
 {
     public class FlightModel
     {
-        public int Id { get; set; }
-        public string FlightNumber { get; set; }
-        public string CompanyName { get; set; }
+        public int ID_Voo { get; set; }
+        public string NumeroVoo{ get; set; }
+        public string CompanhiaAerea { get; set; }
 
-        public string WhereFrom { get; set; }
-        public string WhereTo { get; set; }
+        public string Origem { get; set; }
+        public string Destino { get; set; }
 
-        public string DepartureAt { get; set; }
-        public string ArriveAt { get; set; }
-        public int Capacity { get; set; }
+        public string DataHoraPartida { get; set; }
+        public string DataHoraChegada { get; set; }
+        public int Capacidade { get; set; }
 
-        List<ClientModel> Passengers { get; set; } = new List<ClientModel>();
+        public List<ClientModel> Passengers { get; set; } = new List<ClientModel>();
 
+        public FlightModel() { }
+
+        public FlightModel(string flightNumber, string companyName, string whereFrom, string whereTo, string departureAt, string arriveAt, string capacity)
+        {
+            NumeroVoo = flightNumber;
+            CompanhiaAerea = companyName;
+            Origem = whereFrom;
+            Destino = whereTo;
+            DataHoraPartida = departureAt;
+            DataHoraChegada = arriveAt;
+            int.TryParse(capacity, out int pa);
+            Capacidade = pa;
+        }
+
+        public string FlightName
+        {
+            get
+            {
+                return $"{NumeroVoo} {CompanhiaAerea} {Origem} - {Destino}";
+            }
+        }
     }
 }

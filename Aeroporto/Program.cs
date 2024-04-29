@@ -22,9 +22,7 @@ namespace Aeroporto
 
             GlobalConfig.InitializeConnections(DatabaseType.Sql);
 
-            Application.Run(new RegisterClient());
-
-            //Application.Run(new Dashboard());
+            Application.Run(new Dashboard());
         }
     }
 }

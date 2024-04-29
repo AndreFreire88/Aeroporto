@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,25 @@ namespace Aeroporto
         public RegisterFlight()
         {
             InitializeComponent();
+        }
+
+        private void registerFlightBtn_Click(object sender, EventArgs e)
+        {
+
+
+            FlightModel model = new FlightModel(
+                numberValueTextBox.Text,
+                companyValueTextBox.Text,
+                fromValueTextBox.Text,
+                toValueTextBox.Text,
+                departureValueTextBox.Text,
+                arriveValueTextBox.Text,
+                capacityValueTextBox.Text);
+
+            GlobalConfig.Connection.CreateFlight(model);
+
+            this.Close();
+
         }
     }
 }

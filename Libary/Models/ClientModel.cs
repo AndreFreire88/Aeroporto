@@ -8,22 +8,33 @@ namespace Libary
 {
     public class ClientModel
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
+        public int ID_Passageiro { get; set; }
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Endereco { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
+        public string Telefone { get; set; }
+
+        public List<BaggageModel> Baggages { get; set; } = new List<BaggageModel>();
+
+        public string FullName
+        {
+            get
+            {
+                return $"{Nome} {Sobrenome}";
+            }
+        }
+
 
         public ClientModel() { }
 
         public ClientModel(string firstName, string lastName, string address, string email, string phone)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Address = address;
+            Nome = firstName;
+            Sobrenome = lastName;
+            Endereco = address;
             Email = email;
-            Phone = phone;
+            Telefone = phone;
         }
 
 

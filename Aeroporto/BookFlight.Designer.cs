@@ -31,22 +31,21 @@
             this.bookLabel = new System.Windows.Forms.Label();
             this.clientLabel = new System.Windows.Forms.Label();
             this.flightName = new System.Windows.Forms.Label();
-            this.flightDropDown = new System.Windows.Forms.ComboBox();
+            this.clientDropDown = new System.Windows.Forms.ComboBox();
             this.createClientLink = new System.Windows.Forms.LinkLabel();
             this.clientInfoGroupBox = new System.Windows.Forms.GroupBox();
-            this.bagsListBox = new System.Windows.Forms.ListBox();
-            this.CreateBagBtn = new System.Windows.Forms.Button();
-            this.nomeLabel = new System.Windows.Forms.Label();
-            this.nascimentoLabel = new System.Windows.Forms.Label();
-            this.enderecoLabel = new System.Windows.Forms.Label();
-            this.email = new System.Windows.Forms.Label();
-            this.telefoneLabel = new System.Windows.Forms.Label();
             this.telefoneValueLabel = new System.Windows.Forms.Label();
             this.emailValueLabel = new System.Windows.Forms.Label();
             this.enderecoValueLabel = new System.Windows.Forms.Label();
-            this.nascimentoValueLabel = new System.Windows.Forms.Label();
             this.nomeValueLabel = new System.Windows.Forms.Label();
+            this.telefoneLabel = new System.Windows.Forms.Label();
+            this.email = new System.Windows.Forms.Label();
+            this.enderecoLabel = new System.Windows.Forms.Label();
+            this.nomeLabel = new System.Windows.Forms.Label();
+            this.bagsListBox = new System.Windows.Forms.ListBox();
+            this.CreateBagBtn = new System.Windows.Forms.Button();
             this.bookbutton = new System.Windows.Forms.Button();
+            this.clientBagsLabel = new System.Windows.Forms.Label();
             this.clientInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,19 +72,20 @@
             // 
             this.flightName.AutoSize = true;
             this.flightName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightName.Location = new System.Drawing.Point(61, 158);
+            this.flightName.Location = new System.Drawing.Point(70, 125);
             this.flightName.Name = "flightName";
             this.flightName.Size = new System.Drawing.Size(193, 38);
             this.flightName.TabIndex = 13;
             this.flightName.Text = "<flightName>";
             // 
-            // flightDropDown
+            // clientDropDown
             // 
-            this.flightDropDown.FormattingEnabled = true;
-            this.flightDropDown.Location = new System.Drawing.Point(68, 268);
-            this.flightDropDown.Name = "flightDropDown";
-            this.flightDropDown.Size = new System.Drawing.Size(329, 33);
-            this.flightDropDown.TabIndex = 14;
+            this.clientDropDown.FormattingEnabled = true;
+            this.clientDropDown.Location = new System.Drawing.Point(68, 268);
+            this.clientDropDown.Name = "clientDropDown";
+            this.clientDropDown.Size = new System.Drawing.Size(329, 33);
+            this.clientDropDown.TabIndex = 14;
+            this.clientDropDown.SelectedIndexChanged += new System.EventHandler(this.clientDropDown_SelectedIndexChanged);
             // 
             // createClientLink
             // 
@@ -96,25 +96,96 @@
             this.createClientLink.TabIndex = 21;
             this.createClientLink.TabStop = true;
             this.createClientLink.Text = "Create new";
+            this.createClientLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.createClientLink_LinkClicked);
             // 
             // clientInfoGroupBox
             // 
             this.clientInfoGroupBox.Controls.Add(this.telefoneValueLabel);
             this.clientInfoGroupBox.Controls.Add(this.emailValueLabel);
             this.clientInfoGroupBox.Controls.Add(this.enderecoValueLabel);
-            this.clientInfoGroupBox.Controls.Add(this.nascimentoValueLabel);
             this.clientInfoGroupBox.Controls.Add(this.nomeValueLabel);
             this.clientInfoGroupBox.Controls.Add(this.telefoneLabel);
             this.clientInfoGroupBox.Controls.Add(this.email);
             this.clientInfoGroupBox.Controls.Add(this.enderecoLabel);
-            this.clientInfoGroupBox.Controls.Add(this.nascimentoLabel);
             this.clientInfoGroupBox.Controls.Add(this.nomeLabel);
-            this.clientInfoGroupBox.Location = new System.Drawing.Point(514, 158);
+            this.clientInfoGroupBox.Location = new System.Drawing.Point(514, 125);
             this.clientInfoGroupBox.Name = "clientInfoGroupBox";
             this.clientInfoGroupBox.Size = new System.Drawing.Size(337, 229);
             this.clientInfoGroupBox.TabIndex = 22;
             this.clientInfoGroupBox.TabStop = false;
             this.clientInfoGroupBox.Text = "Client Info";
+            // 
+            // telefoneValueLabel
+            // 
+            this.telefoneValueLabel.AutoSize = true;
+            this.telefoneValueLabel.Location = new System.Drawing.Point(167, 183);
+            this.telefoneValueLabel.Name = "telefoneValueLabel";
+            this.telefoneValueLabel.Size = new System.Drawing.Size(76, 25);
+            this.telefoneValueLabel.TabIndex = 9;
+            this.telefoneValueLabel.Text = "<none>";
+            // 
+            // emailValueLabel
+            // 
+            this.emailValueLabel.AutoSize = true;
+            this.emailValueLabel.Location = new System.Drawing.Point(167, 134);
+            this.emailValueLabel.Name = "emailValueLabel";
+            this.emailValueLabel.Size = new System.Drawing.Size(76, 25);
+            this.emailValueLabel.TabIndex = 8;
+            this.emailValueLabel.Text = "<none>";
+            // 
+            // enderecoValueLabel
+            // 
+            this.enderecoValueLabel.AutoSize = true;
+            this.enderecoValueLabel.Location = new System.Drawing.Point(167, 85);
+            this.enderecoValueLabel.Name = "enderecoValueLabel";
+            this.enderecoValueLabel.Size = new System.Drawing.Size(76, 25);
+            this.enderecoValueLabel.TabIndex = 7;
+            this.enderecoValueLabel.Text = "<none>";
+            // 
+            // nomeValueLabel
+            // 
+            this.nomeValueLabel.AutoSize = true;
+            this.nomeValueLabel.Location = new System.Drawing.Point(167, 36);
+            this.nomeValueLabel.Name = "nomeValueLabel";
+            this.nomeValueLabel.Size = new System.Drawing.Size(76, 25);
+            this.nomeValueLabel.TabIndex = 5;
+            this.nomeValueLabel.Text = "<none>";
+            // 
+            // telefoneLabel
+            // 
+            this.telefoneLabel.AutoSize = true;
+            this.telefoneLabel.Location = new System.Drawing.Point(17, 183);
+            this.telefoneLabel.Name = "telefoneLabel";
+            this.telefoneLabel.Size = new System.Drawing.Size(132, 25);
+            this.telefoneLabel.TabIndex = 4;
+            this.telefoneLabel.Text = "Phone Number";
+            // 
+            // email
+            // 
+            this.email.AutoSize = true;
+            this.email.Location = new System.Drawing.Point(17, 134);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(54, 25);
+            this.email.TabIndex = 3;
+            this.email.Text = "Email";
+            // 
+            // enderecoLabel
+            // 
+            this.enderecoLabel.AutoSize = true;
+            this.enderecoLabel.Location = new System.Drawing.Point(17, 85);
+            this.enderecoLabel.Name = "enderecoLabel";
+            this.enderecoLabel.Size = new System.Drawing.Size(77, 25);
+            this.enderecoLabel.TabIndex = 2;
+            this.enderecoLabel.Text = "Address";
+            // 
+            // nomeLabel
+            // 
+            this.nomeLabel.AutoSize = true;
+            this.nomeLabel.Location = new System.Drawing.Point(17, 36);
+            this.nomeLabel.Name = "nomeLabel";
+            this.nomeLabel.Size = new System.Drawing.Size(59, 25);
+            this.nomeLabel.TabIndex = 0;
+            this.nomeLabel.Text = "Name";
             // 
             // bagsListBox
             // 
@@ -136,96 +207,7 @@
             this.CreateBagBtn.TabIndex = 24;
             this.CreateBagBtn.Text = "Register Bag";
             this.CreateBagBtn.UseVisualStyleBackColor = true;
-            // 
-            // nomeLabel
-            // 
-            this.nomeLabel.AutoSize = true;
-            this.nomeLabel.Location = new System.Drawing.Point(17, 36);
-            this.nomeLabel.Name = "nomeLabel";
-            this.nomeLabel.Size = new System.Drawing.Size(59, 25);
-            this.nomeLabel.TabIndex = 0;
-            this.nomeLabel.Text = "Name";
-            // 
-            // nascimentoLabel
-            // 
-            this.nascimentoLabel.AutoSize = true;
-            this.nascimentoLabel.Location = new System.Drawing.Point(17, 73);
-            this.nascimentoLabel.Name = "nascimentoLabel";
-            this.nascimentoLabel.Size = new System.Drawing.Size(83, 25);
-            this.nascimentoLabel.TabIndex = 1;
-            this.nascimentoLabel.Text = "Birthdate";
-            // 
-            // enderecoLabel
-            // 
-            this.enderecoLabel.AutoSize = true;
-            this.enderecoLabel.Location = new System.Drawing.Point(17, 110);
-            this.enderecoLabel.Name = "enderecoLabel";
-            this.enderecoLabel.Size = new System.Drawing.Size(77, 25);
-            this.enderecoLabel.TabIndex = 2;
-            this.enderecoLabel.Text = "Address";
-            // 
-            // email
-            // 
-            this.email.AutoSize = true;
-            this.email.Location = new System.Drawing.Point(17, 147);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(54, 25);
-            this.email.TabIndex = 3;
-            this.email.Text = "Email";
-            // 
-            // telefoneLabel
-            // 
-            this.telefoneLabel.AutoSize = true;
-            this.telefoneLabel.Location = new System.Drawing.Point(17, 184);
-            this.telefoneLabel.Name = "telefoneLabel";
-            this.telefoneLabel.Size = new System.Drawing.Size(132, 25);
-            this.telefoneLabel.TabIndex = 4;
-            this.telefoneLabel.Text = "Phone Number";
-            // 
-            // telefoneValueLabel
-            // 
-            this.telefoneValueLabel.AutoSize = true;
-            this.telefoneValueLabel.Location = new System.Drawing.Point(167, 184);
-            this.telefoneValueLabel.Name = "telefoneValueLabel";
-            this.telefoneValueLabel.Size = new System.Drawing.Size(76, 25);
-            this.telefoneValueLabel.TabIndex = 9;
-            this.telefoneValueLabel.Text = "<none>";
-            // 
-            // emailValueLabel
-            // 
-            this.emailValueLabel.AutoSize = true;
-            this.emailValueLabel.Location = new System.Drawing.Point(167, 147);
-            this.emailValueLabel.Name = "emailValueLabel";
-            this.emailValueLabel.Size = new System.Drawing.Size(76, 25);
-            this.emailValueLabel.TabIndex = 8;
-            this.emailValueLabel.Text = "<none>";
-            // 
-            // enderecoValueLabel
-            // 
-            this.enderecoValueLabel.AutoSize = true;
-            this.enderecoValueLabel.Location = new System.Drawing.Point(167, 110);
-            this.enderecoValueLabel.Name = "enderecoValueLabel";
-            this.enderecoValueLabel.Size = new System.Drawing.Size(76, 25);
-            this.enderecoValueLabel.TabIndex = 7;
-            this.enderecoValueLabel.Text = "<none>";
-            // 
-            // nascimentoValueLabel
-            // 
-            this.nascimentoValueLabel.AutoSize = true;
-            this.nascimentoValueLabel.Location = new System.Drawing.Point(167, 73);
-            this.nascimentoValueLabel.Name = "nascimentoValueLabel";
-            this.nascimentoValueLabel.Size = new System.Drawing.Size(76, 25);
-            this.nascimentoValueLabel.TabIndex = 6;
-            this.nascimentoValueLabel.Text = "<none>";
-            // 
-            // nomeValueLabel
-            // 
-            this.nomeValueLabel.AutoSize = true;
-            this.nomeValueLabel.Location = new System.Drawing.Point(167, 36);
-            this.nomeValueLabel.Name = "nomeValueLabel";
-            this.nomeValueLabel.Size = new System.Drawing.Size(76, 25);
-            this.nomeValueLabel.TabIndex = 5;
-            this.nomeValueLabel.Text = "<none>";
+            this.CreateBagBtn.Click += new System.EventHandler(this.CreateBagBtn_Click);
             // 
             // bookbutton
             // 
@@ -236,6 +218,17 @@
             this.bookbutton.TabIndex = 25;
             this.bookbutton.Text = "Book";
             this.bookbutton.UseVisualStyleBackColor = true;
+            this.bookbutton.Click += new System.EventHandler(this.bookbutton_Click);
+            // 
+            // clientBagsLabel
+            // 
+            this.clientBagsLabel.AutoSize = true;
+            this.clientBagsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.clientBagsLabel.Location = new System.Drawing.Point(509, 381);
+            this.clientBagsLabel.Name = "clientBagsLabel";
+            this.clientBagsLabel.Size = new System.Drawing.Size(99, 25);
+            this.clientBagsLabel.TabIndex = 26;
+            this.clientBagsLabel.Text = "Client Bags";
             // 
             // BookFlight
             // 
@@ -243,12 +236,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(968, 619);
+            this.Controls.Add(this.clientBagsLabel);
             this.Controls.Add(this.bookbutton);
             this.Controls.Add(this.CreateBagBtn);
             this.Controls.Add(this.bagsListBox);
             this.Controls.Add(this.clientInfoGroupBox);
             this.Controls.Add(this.createClientLink);
-            this.Controls.Add(this.flightDropDown);
+            this.Controls.Add(this.clientDropDown);
             this.Controls.Add(this.flightName);
             this.Controls.Add(this.clientLabel);
             this.Controls.Add(this.bookLabel);
@@ -270,7 +264,7 @@
         private System.Windows.Forms.Label bookLabel;
         private System.Windows.Forms.Label clientLabel;
         private System.Windows.Forms.Label flightName;
-        private System.Windows.Forms.ComboBox flightDropDown;
+        private System.Windows.Forms.ComboBox clientDropDown;
         private System.Windows.Forms.LinkLabel createClientLink;
         private System.Windows.Forms.GroupBox clientInfoGroupBox;
         private System.Windows.Forms.ListBox bagsListBox;
@@ -278,13 +272,12 @@
         private System.Windows.Forms.Label telefoneValueLabel;
         private System.Windows.Forms.Label emailValueLabel;
         private System.Windows.Forms.Label enderecoValueLabel;
-        private System.Windows.Forms.Label nascimentoValueLabel;
         private System.Windows.Forms.Label nomeValueLabel;
         private System.Windows.Forms.Label telefoneLabel;
         private System.Windows.Forms.Label email;
         private System.Windows.Forms.Label enderecoLabel;
-        private System.Windows.Forms.Label nascimentoLabel;
         private System.Windows.Forms.Label nomeLabel;
         private System.Windows.Forms.Button bookbutton;
+        private System.Windows.Forms.Label clientBagsLabel;
     }
 }

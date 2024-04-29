@@ -68,8 +68,9 @@
             this.registerBagBtn.Name = "registerBagBtn";
             this.registerBagBtn.Size = new System.Drawing.Size(157, 42);
             this.registerBagBtn.TabIndex = 3;
-            this.registerBagBtn.Text = "Register Bad";
+            this.registerBagBtn.Text = "Register Bag";
             this.registerBagBtn.UseVisualStyleBackColor = true;
+            this.registerBagBtn.Click += new System.EventHandler(this.registerBagBtn_Click);
             // 
             // RegisterBag
             // 

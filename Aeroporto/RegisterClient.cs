@@ -24,6 +24,8 @@ namespace Aeroporto
 
             GlobalConfig.Connection.CreateClient(model);
 
+            Close();
+
         }
 
 

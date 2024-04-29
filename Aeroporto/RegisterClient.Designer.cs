@@ -116,14 +116,14 @@
             this.emailValue.Location = new System.Drawing.Point(252, 418);
             this.emailValue.Name = "emailValue";
             this.emailValue.Size = new System.Drawing.Size(162, 31);
-            this.emailValue.TabIndex = 8;
+            this.emailValue.TabIndex = 9;
             // 
             // addressValue
             // 
             this.addressValue.Location = new System.Drawing.Point(252, 322);
             this.addressValue.Name = "addressValue";
             this.addressValue.Size = new System.Drawing.Size(162, 31);
-            this.addressValue.TabIndex = 9;
+            this.addressValue.TabIndex = 8;
             // 
             // CellphoneNumberValue
             // 
