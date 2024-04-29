@@ -261,6 +261,7 @@
             this.removePassenger.TabIndex = 10;
             this.removePassenger.Text = "Remove Passenger";
             this.removePassenger.UseVisualStyleBackColor = true;
+            this.removePassenger.Click += new System.EventHandler(this.removePassenger_Click);
             // 
             // flightNameLabel
             // 
@@ -281,6 +282,7 @@
             this.addPassager.TabIndex = 13;
             this.addPassager.Text = "Add Passenger";
             this.addPassager.UseVisualStyleBackColor = true;
+            this.addPassager.Click += new System.EventHandler(this.addPassager_Click);
             // 
             // Dashboard
             // 

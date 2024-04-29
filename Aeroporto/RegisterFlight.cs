@@ -13,9 +13,11 @@ namespace Aeroporto
 {
     public partial class RegisterFlight : Form
     {
-        public RegisterFlight()
+        IRegisterFlightRequest callingForm;
+        public RegisterFlight(IRegisterFlightRequest caller)
         {
             InitializeComponent();
+            callingForm = caller;
         }
 
         private void registerFlightBtn_Click(object sender, EventArgs e)
@@ -32,8 +34,9 @@ namespace Aeroporto
                 capacityValueTextBox.Text);
 
             GlobalConfig.Connection.CreateFlight(model);
+            callingForm.FlightComplete();
 
-            this.Close();
+            Close();
 
         }
     }

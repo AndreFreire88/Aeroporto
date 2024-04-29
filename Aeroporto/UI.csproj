@@ -58,6 +58,10 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBookFlightRequest.cs" />
+    <Compile Include="Interfaces\IRegisterBagRequest.cs" />
+    <Compile Include="Interfaces\IRegisterClientRequest.cs" />
+    <Compile Include="Interfaces\IRegisterFlightRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterBag.cs">

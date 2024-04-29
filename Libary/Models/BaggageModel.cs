@@ -8,8 +8,8 @@ namespace Libary
 {
     public class BaggageModel
     {
-        public int IDBagagem { get; set; }
-        public int IDPassageiro { get; set; }
+        public int ID_Bagagem { get; set; }
+        public int ID_Passageiro { get; set; }
         public decimal Peso { get; set; }
 
         public string Info
@@ -24,7 +24,7 @@ namespace Libary
 
         public BaggageModel(int clientId, string weight)
         {
-            IDPassageiro = clientId;
+            ID_Passageiro = clientId;
             decimal.TryParse(weight, out decimal pa);
             Peso = pa;
         }

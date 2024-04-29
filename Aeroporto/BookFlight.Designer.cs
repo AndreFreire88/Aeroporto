@@ -30,7 +30,7 @@
         {
             this.bookLabel = new System.Windows.Forms.Label();
             this.clientLabel = new System.Windows.Forms.Label();
-            this.flightName = new System.Windows.Forms.Label();
+            this.flightNameLabel = new System.Windows.Forms.Label();
             this.clientDropDown = new System.Windows.Forms.ComboBox();
             this.createClientLink = new System.Windows.Forms.LinkLabel();
             this.clientInfoGroupBox = new System.Windows.Forms.GroupBox();
@@ -46,6 +46,7 @@
             this.CreateBagBtn = new System.Windows.Forms.Button();
             this.bookbutton = new System.Windows.Forms.Button();
             this.clientBagsLabel = new System.Windows.Forms.Label();
+            this.deleteBagBtn = new System.Windows.Forms.Button();
             this.clientInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,15 +69,15 @@
             this.clientLabel.TabIndex = 1;
             this.clientLabel.Text = "Select a client";
             // 
-            // flightName
+            // flightNameLabel
             // 
-            this.flightName.AutoSize = true;
-            this.flightName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flightName.Location = new System.Drawing.Point(70, 125);
-            this.flightName.Name = "flightName";
-            this.flightName.Size = new System.Drawing.Size(193, 38);
-            this.flightName.TabIndex = 13;
-            this.flightName.Text = "<flightName>";
+            this.flightNameLabel.AutoSize = true;
+            this.flightNameLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flightNameLabel.Location = new System.Drawing.Point(70, 125);
+            this.flightNameLabel.Name = "flightNameLabel";
+            this.flightNameLabel.Size = new System.Drawing.Size(193, 38);
+            this.flightNameLabel.TabIndex = 13;
+            this.flightNameLabel.Text = "<flightName>";
             // 
             // clientDropDown
             // 
@@ -230,12 +231,24 @@
             this.clientBagsLabel.TabIndex = 26;
             this.clientBagsLabel.Text = "Client Bags";
             // 
+            // deleteBagBtn
+            // 
+            this.deleteBagBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.deleteBagBtn.Location = new System.Drawing.Point(857, 469);
+            this.deleteBagBtn.Name = "deleteBagBtn";
+            this.deleteBagBtn.Size = new System.Drawing.Size(99, 36);
+            this.deleteBagBtn.TabIndex = 27;
+            this.deleteBagBtn.Text = "Delete";
+            this.deleteBagBtn.UseVisualStyleBackColor = true;
+            this.deleteBagBtn.Click += new System.EventHandler(this.deleteBagBtn_Click);
+            // 
             // BookFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(968, 619);
+            this.Controls.Add(this.deleteBagBtn);
             this.Controls.Add(this.clientBagsLabel);
             this.Controls.Add(this.bookbutton);
             this.Controls.Add(this.CreateBagBtn);
@@ -243,7 +256,7 @@
             this.Controls.Add(this.clientInfoGroupBox);
             this.Controls.Add(this.createClientLink);
             this.Controls.Add(this.clientDropDown);
-            this.Controls.Add(this.flightName);
+            this.Controls.Add(this.flightNameLabel);
             this.Controls.Add(this.clientLabel);
             this.Controls.Add(this.bookLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -263,7 +276,7 @@
 
         private System.Windows.Forms.Label bookLabel;
         private System.Windows.Forms.Label clientLabel;
-        private System.Windows.Forms.Label flightName;
+        private System.Windows.Forms.Label flightNameLabel;
         private System.Windows.Forms.ComboBox clientDropDown;
         private System.Windows.Forms.LinkLabel createClientLink;
         private System.Windows.Forms.GroupBox clientInfoGroupBox;
@@ -279,5 +292,6 @@
         private System.Windows.Forms.Label nomeLabel;
         private System.Windows.Forms.Button bookbutton;
         private System.Windows.Forms.Label clientBagsLabel;
+        private System.Windows.Forms.Button deleteBagBtn;
     }
 }

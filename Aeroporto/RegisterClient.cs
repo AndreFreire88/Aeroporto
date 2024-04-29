@@ -1,4 +1,5 @@
-﻿using Libary;
+﻿using Aeroporto.Interfaces;
+using Libary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,11 @@ namespace Aeroporto
 {
     public partial class RegisterClient : Form
     {
-        public RegisterClient()
+        IRegisterClientRequest callingForm;
+        public RegisterClient(IRegisterClientRequest caller)
         {
             InitializeComponent();
+            callingForm = caller;
         }
 
         private void registerClientBtn_Click(object sender, EventArgs e)
@@ -23,6 +26,7 @@ namespace Aeroporto
             ClientModel model = new ClientModel(firstNameValue.Text, lastNameValue.Text, addressValue.Text, emailValue.Text, CellphoneNumberValue.Text);
 
             GlobalConfig.Connection.CreateClient(model);
+            callingForm.RegisterClientComplete();
 
             Close();
 

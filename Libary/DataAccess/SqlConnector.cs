@@ -15,19 +15,32 @@ namespace Libary.DataAccess
     public class SqlConnector : IDataConnection
     {
         private const string db = "aeroporto";
+
+        public void BookFlight(FlightModel flightModel, ClientModel clientModel)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                DynamicParameters p = new DynamicParameters();
+
+                p.Add("@IdVoo", flightModel.ID_Voo);
+                p.Add("@IdClient", clientModel.ID_Passageiro);
+                connection.Execute("spReserva_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public void CreateBag(BaggageModel model)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
             {
                 DynamicParameters p = new DynamicParameters();
 
-                p.Add("@IdClient", model.IDPassageiro);
+                p.Add("@IdClient", model.ID_Passageiro);
                 p.Add("@Peso", model.Peso);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spBagagem_Insert", p, commandType: CommandType.StoredProcedure);
 
-                model.IDBagagem = p.Get<int>("@id");
+                model.ID_Bagagem = p.Get<int>("@id");
             }
         }
 
@@ -63,8 +76,29 @@ namespace Libary.DataAccess
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
                 connection.Execute("spVoo_Insert", p, commandType: CommandType.StoredProcedure);
 
-
             }
+        }
+
+        public void DeleteBag(BaggageModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                DynamicParameters p = new DynamicParameters();
+                p.Add("@BagId", model.ID_Bagagem);
+                connection.Execute("spBagagem_Delete", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void DeleteReservation(FlightModel flightModel, ClientModel clientModel)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                DynamicParameters p = new DynamicParameters();
+                p.Add("@ClientId", clientModel.ID_Passageiro);
+                p.Add("@FlightId", flightModel.ID_Voo);
+                connection.Execute("spReserva_Delete", p, commandType: CommandType.StoredProcedure);
+            }
+
         }
 
         public List<ClientModel> GetClients_All()
@@ -78,9 +112,7 @@ namespace Libary.DataAccess
                 foreach (ClientModel client in output)
                 {
                     p = new DynamicParameters();
-                    //p.Add("@ClientId", client.ID_Passageiro);
                     p.Add("@ClientId", client.ID_Passageiro);
-
 
                     client.Baggages = connection.Query<BaggageModel>("dbo.spBags_GetByClient", p, commandType: CommandType.StoredProcedure).ToList();
                 }

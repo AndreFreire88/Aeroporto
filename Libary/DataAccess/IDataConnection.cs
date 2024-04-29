@@ -17,6 +17,12 @@ namespace Libary.DataAccess
         void CreateFlight(FlightModel model);
 
         List<FlightModel> GetFlights_All();
+
+        void BookFlight(FlightModel flightModel, ClientModel clientModel);
+
+        void DeleteReservation(FlightModel flightModel, ClientModel clientModel);
+
+        void DeleteBag(BaggageModel model);
         
      
     }

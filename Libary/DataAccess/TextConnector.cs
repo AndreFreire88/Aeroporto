@@ -8,12 +8,27 @@ namespace Libary.DataAccess
 {
     internal class TextConnector : IDataConnection
     {
+        public void BookFlight(FlightModel flightModel, ClientModel clientModel)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateBag(BaggageModel model)
         {
             throw new NotImplementedException();
         }
 
         public void CreateFlight(FlightModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteBag(BaggageModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteReservation(FlightModel flightModel, ClientModel clientModel)
         {
             throw new NotImplementedException();
         }
