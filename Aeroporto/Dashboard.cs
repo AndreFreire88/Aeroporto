@@ -66,10 +66,18 @@ namespace Aeroporto
         }
 
         private void addPassager_Click(object sender, EventArgs e)
-        {            
-            FlightModel flight = flightDropDown.SelectedItem as FlightModel;
-            BookFlight frm = new BookFlight(this, flight);
-            frm.Show();
+        {
+
+            FlightModel flightModel = flightDropDown.SelectedItem as FlightModel;
+
+            if (flightModel != null)
+            {
+                BookFlight frm = new BookFlight(this, flightModel);
+                frm.Show();
+            }
+            else
+                MessageBox.Show("No flight selected", "Error");
+
         }
 
         private void removePassenger_Click(object sender, EventArgs e)
@@ -138,9 +146,15 @@ namespace Aeroporto
 
         private void UpdateFlightBtn_Click(object sender, EventArgs e)
         {
-            FlightModel flightModel = flightDropDown.SelectedItem as FlightModel ;
-            UpdateFlight frm = new UpdateFlight(this, flightModel);
-            frm.Show();
+            FlightModel flightModel = flightDropDown.SelectedItem as FlightModel;
+
+            if (flightModel != null)
+            {
+                UpdateFlight frm = new UpdateFlight(this, flightModel);
+                frm.Show();
+            }
+            else
+                MessageBox.Show("No flight selected", "Error");
 
         }
 

@@ -60,7 +60,7 @@
             // horaDeChegadaLabel
             // 
             this.horaDeChegadaLabel.AutoSize = true;
-            this.horaDeChegadaLabel.Location = new System.Drawing.Point(453, 138);
+            this.horaDeChegadaLabel.Location = new System.Drawing.Point(453, 147);
             this.horaDeChegadaLabel.Name = "horaDeChegadaLabel";
             this.horaDeChegadaLabel.Size = new System.Drawing.Size(78, 25);
             this.horaDeChegadaLabel.TabIndex = 48;
@@ -69,7 +69,7 @@
             // horaDePartidaLabel
             // 
             this.horaDePartidaLabel.AutoSize = true;
-            this.horaDePartidaLabel.Location = new System.Drawing.Point(38, 142);
+            this.horaDePartidaLabel.Location = new System.Drawing.Point(62, 142);
             this.horaDePartidaLabel.Name = "horaDePartidaLabel";
             this.horaDePartidaLabel.Size = new System.Drawing.Size(111, 25);
             this.horaDePartidaLabel.TabIndex = 47;
@@ -80,17 +80,18 @@
             this.departureDateValue.CustomFormat = "yyyy-MM-dd HH:mm";
             this.departureDateValue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.departureDateValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.departureDateValue.Location = new System.Drawing.Point(164, 142);
+            this.departureDateValue.Location = new System.Drawing.Point(188, 142);
             this.departureDateValue.Name = "departureDateValue";
             this.departureDateValue.Size = new System.Drawing.Size(189, 31);
             this.departureDateValue.TabIndex = 63;
+            this.departureDateValue.ValueChanged += new System.EventHandler(this.departureDateValue_ValueChanged);
             // 
             // arriveDateValue
             // 
             this.arriveDateValue.CustomFormat = "yyyy-MM-dd HH:mm";
             this.arriveDateValue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arriveDateValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.arriveDateValue.Location = new System.Drawing.Point(549, 133);
+            this.arriveDateValue.Location = new System.Drawing.Point(549, 142);
             this.arriveDateValue.Name = "arriveDateValue";
             this.arriveDateValue.Size = new System.Drawing.Size(189, 31);
             this.arriveDateValue.TabIndex = 64;

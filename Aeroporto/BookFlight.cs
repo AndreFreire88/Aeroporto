@@ -71,8 +71,14 @@ namespace Aeroporto
         private void CreateBagBtn_Click(object sender, EventArgs e)
         {
             ClientModel passenger = clientDropDown.SelectedItem as ClientModel;
-            RegisterBag frm = new RegisterBag(this,passenger);
-            frm.Show();
+            if (passenger != null)
+            {
+                RegisterBag frm = new RegisterBag(this, passenger);
+                frm.Show();
+            }
+            else
+                MessageBox.Show("No Client selected", "Error");
+
         }
 
         private void WireUpBags()
@@ -104,18 +110,31 @@ namespace Aeroporto
         }
         private void bookbutton_Click(object sender, EventArgs e)
         {
-            ClientModel client = clientDropDown.SelectedItem as ClientModel;
-            GlobalConfig.Connection.BookFlight(flight, client);
-            callingForm.ReservationComplete( client);
-            Close();
+            ClientModel passenger = clientDropDown.SelectedItem as ClientModel;
+            if (passenger != null)
+            {
+                GlobalConfig.Connection.BookFlight(flight, passenger);
+                callingForm.ReservationComplete(passenger);
+                Close();
+            }
+            else
+                MessageBox.Show("No client Selected", "Error");
+
         }
         private void deleteBagBtn_Click(object sender, EventArgs e)
         {
             BaggageModel bag = bagsListBox.SelectedItem as BaggageModel;
 
-            GlobalConfig.Connection.DeleteBag(bag);
+            if (bag != null)
+            {
+                GlobalConfig.Connection.DeleteBag(bag);
 
-            UpdateInfo(bag.ID_Passageiro);
+                UpdateInfo(bag.ID_Passageiro);
+            }
+            else
+                MessageBox.Show("No Bag selected","Error");
+
+
         }
         public void RegisterClientComplete(ClientModel model)
         {
@@ -152,8 +171,14 @@ namespace Aeroporto
         private void updateClientInfo_Click(object sender, EventArgs e)
         {
             ClientModel passenger = clientDropDown.SelectedItem as ClientModel;
-            UpdateClient frm = new UpdateClient(this, passenger);
-            frm.Show();
+            if (passenger != null)
+            {
+                UpdateClient frm = new UpdateClient(this, passenger);
+                frm.Show();
+            }
+            else
+                MessageBox.Show("No Client Selected", "Error");
+
 
         }
 
@@ -162,5 +187,6 @@ namespace Aeroporto
             UpdateInfo(model.ID_Passageiro);
 
         }
+
     }
 }

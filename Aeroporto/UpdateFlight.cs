@@ -63,5 +63,13 @@ namespace Aeroporto
             return true;
         }
 
+        private void departureDateValue_ValueChanged(object sender, EventArgs e)
+        {
+            if (departureDateValue.Value > arriveDateValue.Value)
+            {
+                arriveDateValue.Value = departureDateValue.Value;
+            }
+        }
+
     }
 }
