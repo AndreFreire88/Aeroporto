@@ -173,7 +173,7 @@
             this.departureDateValue.Location = new System.Drawing.Point(263, 408);
             this.departureDateValue.Name = "departureDateValue";
             this.departureDateValue.Size = new System.Drawing.Size(189, 31);
-            this.departureDateValue.TabIndex = 62;
+            this.departureDateValue.TabIndex = 5;
             // 
             // arriveDateValue
             // 
@@ -183,7 +183,7 @@
             this.arriveDateValue.Location = new System.Drawing.Point(263, 479);
             this.arriveDateValue.Name = "arriveDateValue";
             this.arriveDateValue.Size = new System.Drawing.Size(189, 31);
-            this.arriveDateValue.TabIndex = 63;
+            this.arriveDateValue.TabIndex = 6;
             // 
             // RegisterFlight
             // 

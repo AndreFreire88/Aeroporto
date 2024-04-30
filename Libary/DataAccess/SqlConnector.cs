@@ -14,7 +14,7 @@ namespace Libary.DataAccess
 
     public class SqlConnector : IDataConnection
     {
-        private const string db = "aeroporto";
+        private const string db = "Companhia_Aerea";
 
         public void BookFlight(FlightModel flightModel, ClientModel clientModel)
         {
