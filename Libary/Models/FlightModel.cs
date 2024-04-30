@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,16 @@ namespace Libary
             DataHoraChegada = chegada;
             int.TryParse(capacity, out int pa);
             Capacidade = pa;
+        }
+
+        public FlightModel(int id, string departureAt, string arriveAt)
+        {
+            ID_Voo = id;
+            DateTime.TryParse(departureAt, out DateTime partida);
+            DataHoraPartida = partida;
+            DateTime.TryParse(arriveAt, out DateTime chegada);
+            DataHoraChegada = chegada;
+
         }
 
         public string FlightName

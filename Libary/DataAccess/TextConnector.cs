@@ -48,6 +48,16 @@ namespace Libary.DataAccess
             throw new NotImplementedException();
         }
 
+        public void UpdateClient(ClientModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateFlights(FlightModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         void IDataConnection.CreateClient(ClientModel model)
         {
             throw new NotImplementedException();

@@ -1,4 +1,5 @@
-﻿using Libary;
+﻿using Aeroporto.Interfaces;
+using Libary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Aeroporto
 {
-    public partial class Dashboard : Form, IRegisterFlightRequest, IBookFlightRequest
+    public partial class Dashboard : Form, IRegisterFlightRequest, IBookFlightRequest, IUpdateFlightRequest
     {
         List<FlightModel> flights = GlobalConfig.Connection.GetFlights_All();
         public Dashboard()
@@ -39,8 +40,9 @@ namespace Aeroporto
                 companhiaValueLabel.Text = model.CompanhiaAerea;
                 origemValueLabel.Text = model.Origem;
                 destinoValueLabel.Text = model.Destino;
-                HoraDePartidadeValueLabel.Text = model.DataHoraPartida.ToString().Substring(0, model.DataHoraChegada.ToString().Length - 2);
-                horaDeChegadaValueLabel.Text = model.DataHoraChegada.ToString().Substring(0, model.DataHoraChegada.ToString().Length - 2);
+
+                HoraDePartidadeValueLabel.Text = model.DataHoraPartida.ToString("dd/MM/yyyy HH:mm");
+                horaDeChegadaValueLabel.Text = model.DataHoraChegada.ToString("dd/MM/yyyy HH:mm");
                 capacidadeValueLabel.Text = model.Capacidade.ToString();
 
                 flightNameLabel.Text = model.FlightName;
@@ -79,7 +81,8 @@ namespace Aeroporto
             {
                 GlobalConfig.Connection.DeleteReservation(flight, client);
 
-                Updateinfo(0);
+                Updateinfo(flight.ID_Voo);
+                
             }
             else
             {
@@ -88,31 +91,38 @@ namespace Aeroporto
 
         }
 
-        public void FlightComplete()
+        public void FlightComplete(FlightModel model)
         {
-            Updateinfo(1);
+            Updateinfo(model.ID_Voo);
         }
 
-        private void Updateinfo(byte type)
+        private void Updateinfo(int id)
         {
             flights = GlobalConfig.Connection.GetFlights_All();
 
             WireUpLIst();
 
-            if (type == 1)
+            int index = 0;
+
+            for (int i = 0; i < flights.Count; i++)
             {
-                flightDropDown.SelectedIndex = flightDropDown.Items.Count - 1;
+                if (flights[i].ID_Voo == id)
+                {
+                    index = i;
+                    break;
+                }
+
             }
+            flightDropDown.SelectedIndex = index;
 
             WireUpInfo();
         }
 
         public void ReservationComplete(ClientModel model)
         {
-            Updateinfo(0);
-
             FlightModel flightModel = flightDropDown.SelectedItem as FlightModel;
             List<ClientModel> clients = flightModel.Passengers.ToList();
+            Updateinfo(flightModel.ID_Voo);
             int index = 0;
 
             for (int i = 0; i < clients.Count; i++)
@@ -124,6 +134,19 @@ namespace Aeroporto
                 }
             }
             passangerListBox.SelectedIndex = index;
+        }
+
+        private void UpdateFlightBtn_Click(object sender, EventArgs e)
+        {
+            FlightModel flightModel = flightDropDown.SelectedItem as FlightModel ;
+            UpdateFlight frm = new UpdateFlight(this, flightModel);
+            frm.Show();
+
+        }
+
+        public void UpdateFlightComplete(FlightModel model)
+        {
+            Updateinfo(model.ID_Voo);
         }
     }
 }

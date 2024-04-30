@@ -37,6 +37,14 @@ namespace Libary
             Telefone = phone;
         }
 
+        public ClientModel(int id, string address, string email, string phone)
+        {
+            ID_Passageiro = id;
+            Endereco = address;
+            Email = email;
+            Telefone = phone;
+        }
+
 
     }
 }

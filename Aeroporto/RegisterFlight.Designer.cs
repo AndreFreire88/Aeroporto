@@ -36,14 +36,14 @@
             this.companhiaLabel = new System.Windows.Forms.Label();
             this.numerovooLabel = new System.Windows.Forms.Label();
             this.capacityValueTextBox = new System.Windows.Forms.TextBox();
-            this.arriveValueTextBox = new System.Windows.Forms.TextBox();
-            this.departureValueTextBox = new System.Windows.Forms.TextBox();
             this.toValueTextBox = new System.Windows.Forms.TextBox();
             this.fromValueTextBox = new System.Windows.Forms.TextBox();
             this.companyValueTextBox = new System.Windows.Forms.TextBox();
             this.numberValueTextBox = new System.Windows.Forms.TextBox();
             this.registerFlightLabel = new System.Windows.Forms.Label();
             this.registerFlightBtn = new System.Windows.Forms.Button();
+            this.departureDateValue = new System.Windows.Forms.DateTimePicker();
+            this.arriveDateValue = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // capacidadeLabel
@@ -113,49 +113,35 @@
             // 
             this.capacityValueTextBox.Location = new System.Drawing.Point(263, 554);
             this.capacityValueTextBox.Name = "capacityValueTextBox";
-            this.capacityValueTextBox.Size = new System.Drawing.Size(162, 31);
+            this.capacityValueTextBox.Size = new System.Drawing.Size(189, 31);
             this.capacityValueTextBox.TabIndex = 7;
-            // 
-            // arriveValueTextBox
-            // 
-            this.arriveValueTextBox.Location = new System.Drawing.Point(263, 480);
-            this.arriveValueTextBox.Name = "arriveValueTextBox";
-            this.arriveValueTextBox.Size = new System.Drawing.Size(162, 31);
-            this.arriveValueTextBox.TabIndex = 6;
-            // 
-            // departureValueTextBox
-            // 
-            this.departureValueTextBox.Location = new System.Drawing.Point(263, 406);
-            this.departureValueTextBox.Name = "departureValueTextBox";
-            this.departureValueTextBox.Size = new System.Drawing.Size(162, 31);
-            this.departureValueTextBox.TabIndex = 5;
             // 
             // toValueTextBox
             // 
             this.toValueTextBox.Location = new System.Drawing.Point(263, 332);
             this.toValueTextBox.Name = "toValueTextBox";
-            this.toValueTextBox.Size = new System.Drawing.Size(162, 31);
+            this.toValueTextBox.Size = new System.Drawing.Size(189, 31);
             this.toValueTextBox.TabIndex = 4;
             // 
             // fromValueTextBox
             // 
             this.fromValueTextBox.Location = new System.Drawing.Point(263, 258);
             this.fromValueTextBox.Name = "fromValueTextBox";
-            this.fromValueTextBox.Size = new System.Drawing.Size(162, 31);
+            this.fromValueTextBox.Size = new System.Drawing.Size(189, 31);
             this.fromValueTextBox.TabIndex = 3;
             // 
             // companyValueTextBox
             // 
             this.companyValueTextBox.Location = new System.Drawing.Point(263, 184);
             this.companyValueTextBox.Name = "companyValueTextBox";
-            this.companyValueTextBox.Size = new System.Drawing.Size(162, 31);
+            this.companyValueTextBox.Size = new System.Drawing.Size(189, 31);
             this.companyValueTextBox.TabIndex = 2;
             // 
             // numberValueTextBox
             // 
             this.numberValueTextBox.Location = new System.Drawing.Point(263, 110);
             this.numberValueTextBox.Name = "numberValueTextBox";
-            this.numberValueTextBox.Size = new System.Drawing.Size(162, 31);
+            this.numberValueTextBox.Size = new System.Drawing.Size(189, 31);
             this.numberValueTextBox.TabIndex = 1;
             // 
             // registerFlightLabel
@@ -179,19 +165,39 @@
             this.registerFlightBtn.UseVisualStyleBackColor = true;
             this.registerFlightBtn.Click += new System.EventHandler(this.registerFlightBtn_Click);
             // 
+            // departureDateValue
+            // 
+            this.departureDateValue.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.departureDateValue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departureDateValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.departureDateValue.Location = new System.Drawing.Point(263, 408);
+            this.departureDateValue.Name = "departureDateValue";
+            this.departureDateValue.Size = new System.Drawing.Size(189, 31);
+            this.departureDateValue.TabIndex = 62;
+            // 
+            // arriveDateValue
+            // 
+            this.arriveDateValue.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.arriveDateValue.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arriveDateValue.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.arriveDateValue.Location = new System.Drawing.Point(263, 479);
+            this.arriveDateValue.Name = "arriveDateValue";
+            this.arriveDateValue.Size = new System.Drawing.Size(189, 31);
+            this.arriveDateValue.TabIndex = 63;
+            // 
             // RegisterFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(536, 675);
+            this.Controls.Add(this.arriveDateValue);
+            this.Controls.Add(this.departureDateValue);
             this.Controls.Add(this.registerFlightBtn);
             this.Controls.Add(this.registerFlightLabel);
             this.Controls.Add(this.numberValueTextBox);
             this.Controls.Add(this.companyValueTextBox);
             this.Controls.Add(this.capacityValueTextBox);
-            this.Controls.Add(this.arriveValueTextBox);
-            this.Controls.Add(this.departureValueTextBox);
             this.Controls.Add(this.toValueTextBox);
             this.Controls.Add(this.fromValueTextBox);
             this.Controls.Add(this.capacidadeLabel);
@@ -205,6 +211,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RegisterFlight";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterFlight";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,13 +228,13 @@
         private System.Windows.Forms.Label companhiaLabel;
         private System.Windows.Forms.Label numerovooLabel;
         private System.Windows.Forms.TextBox capacityValueTextBox;
-        private System.Windows.Forms.TextBox arriveValueTextBox;
-        private System.Windows.Forms.TextBox departureValueTextBox;
         private System.Windows.Forms.TextBox toValueTextBox;
         private System.Windows.Forms.TextBox fromValueTextBox;
         private System.Windows.Forms.TextBox companyValueTextBox;
         private System.Windows.Forms.TextBox numberValueTextBox;
         private System.Windows.Forms.Label registerFlightLabel;
         private System.Windows.Forms.Button registerFlightBtn;
+        private System.Windows.Forms.DateTimePicker departureDateValue;
+        private System.Windows.Forms.DateTimePicker arriveDateValue;
     }
 }

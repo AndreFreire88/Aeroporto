@@ -76,6 +76,8 @@ namespace Libary.DataAccess
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
                 connection.Execute("spVoo_Insert", p, commandType: CommandType.StoredProcedure);
 
+                model.ID_Voo = p.Get<int>("@id");
+
             }
         }
 
@@ -139,6 +141,33 @@ namespace Libary.DataAccess
             }
 
             return output;
+        }
+
+        public void UpdateClient(ClientModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                DynamicParameters p = new DynamicParameters();
+                p.Add("@Address", model.Endereco);
+                p.Add("@Email", model.Email);
+                p.Add("@Cellphone", model.Telefone);
+                p.Add("@ID", model.ID_Passageiro);
+                connection.Execute("spPassageiro_UpdateRow", p, commandType: CommandType.StoredProcedure);
+
+            }
+        }
+
+        public void UpdateFlights(FlightModel model)
+        {
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                DynamicParameters p = new DynamicParameters();
+                p.Add("@DataHoraPartida", model.DataHoraPartida);
+                p.Add("@DataHoraChegada", model.DataHoraChegada);
+                p.Add("@id", model.ID_Voo);
+                connection.Execute("spVoo_UpdateRow", p, commandType: CommandType.StoredProcedure);
+
+            }
         }
     }
 }

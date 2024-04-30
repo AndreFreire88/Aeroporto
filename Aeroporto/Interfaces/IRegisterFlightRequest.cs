@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Libary;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Aeroporto
 {
     public interface IRegisterFlightRequest
     {        
-        void FlightComplete();
+        void FlightComplete(FlightModel model);
     }
 }

@@ -51,6 +51,7 @@
             this.removePassenger = new System.Windows.Forms.Button();
             this.flightNameLabel = new System.Windows.Forms.Label();
             this.addPassager = new System.Windows.Forms.Button();
+            this.passengerLabel = new System.Windows.Forms.Label();
             this.flightInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             this.flightInfoGroupBox.Controls.Add(this.numerovooLabel);
             this.flightInfoGroupBox.Location = new System.Drawing.Point(24, 95);
             this.flightInfoGroupBox.Name = "flightInfoGroupBox";
-            this.flightInfoGroupBox.Size = new System.Drawing.Size(272, 408);
+            this.flightInfoGroupBox.Size = new System.Drawing.Size(316, 408);
             this.flightInfoGroupBox.TabIndex = 6;
             this.flightInfoGroupBox.TabStop = false;
             this.flightInfoGroupBox.Text = "Info";
@@ -229,6 +230,7 @@
             this.UpdateFlightBtn.TabIndex = 0;
             this.UpdateFlightBtn.Text = "Update Flight";
             this.UpdateFlightBtn.UseVisualStyleBackColor = true;
+            this.UpdateFlightBtn.Click += new System.EventHandler(this.UpdateFlightBtn_Click);
             // 
             // CreateFlightBtn
             // 
@@ -247,17 +249,17 @@
             this.passangerListBox.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.passangerListBox.FormattingEnabled = true;
             this.passangerListBox.ItemHeight = 25;
-            this.passangerListBox.Location = new System.Drawing.Point(335, 108);
+            this.passangerListBox.Location = new System.Drawing.Point(408, 124);
             this.passangerListBox.Name = "passangerListBox";
-            this.passangerListBox.Size = new System.Drawing.Size(256, 404);
+            this.passangerListBox.Size = new System.Drawing.Size(256, 379);
             this.passangerListBox.TabIndex = 8;
             // 
             // removePassenger
             // 
             this.removePassenger.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.removePassenger.Location = new System.Drawing.Point(618, 249);
+            this.removePassenger.Location = new System.Drawing.Point(679, 254);
             this.removePassenger.Name = "removePassenger";
-            this.removePassenger.Size = new System.Drawing.Size(169, 42);
+            this.removePassenger.Size = new System.Drawing.Size(108, 60);
             this.removePassenger.TabIndex = 10;
             this.removePassenger.Text = "Remove Passenger";
             this.removePassenger.UseVisualStyleBackColor = true;
@@ -276,7 +278,7 @@
             // addPassager
             // 
             this.addPassager.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.addPassager.Location = new System.Drawing.Point(370, 534);
+            this.addPassager.Location = new System.Drawing.Point(442, 534);
             this.addPassager.Name = "addPassager";
             this.addPassager.Size = new System.Drawing.Size(169, 42);
             this.addPassager.TabIndex = 13;
@@ -284,12 +286,23 @@
             this.addPassager.UseVisualStyleBackColor = true;
             this.addPassager.Click += new System.EventHandler(this.addPassager_Click);
             // 
+            // passengerLabel
+            // 
+            this.passengerLabel.AutoSize = true;
+            this.passengerLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.passengerLabel.Location = new System.Drawing.Point(403, 95);
+            this.passengerLabel.Name = "passengerLabel";
+            this.passengerLabel.Size = new System.Drawing.Size(122, 25);
+            this.passengerLabel.TabIndex = 14;
+            this.passengerLabel.Text = "Passenger List";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(801, 724);
+            this.Controls.Add(this.passengerLabel);
             this.Controls.Add(this.addPassager);
             this.Controls.Add(this.flightNameLabel);
             this.Controls.Add(this.removePassenger);
@@ -337,6 +350,7 @@
         private System.Windows.Forms.Label numerovooLabel;
         private System.Windows.Forms.Label capacidadeValueLabel;
         private System.Windows.Forms.Label capacidadeLabel;
+        private System.Windows.Forms.Label passengerLabel;
     }
 }
 

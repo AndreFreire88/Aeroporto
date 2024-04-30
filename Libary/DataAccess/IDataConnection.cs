@@ -23,6 +23,10 @@ namespace Libary.DataAccess
         void DeleteReservation(FlightModel flightModel, ClientModel clientModel);
 
         void DeleteBag(BaggageModel model);
+
+        void UpdateClient(ClientModel model);
+
+        void UpdateFlights(FlightModel model);
         
      
     }

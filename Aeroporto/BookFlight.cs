@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Aeroporto
 {
-    public partial class BookFlight : Form, IRegisterClientRequest, IRegisterBagRequest
+    public partial class BookFlight : Form, IRegisterClientRequest, IRegisterBagRequest, IUpdateClientRequest
     {
         private List<ClientModel> clients = GlobalConfig.Connection.GetClients_All();
         private List<ClientModel> available = new List<ClientModel>();
@@ -146,6 +146,20 @@ namespace Aeroporto
 
 
             WireUpBags();
+
+        }
+
+        private void updateClientInfo_Click(object sender, EventArgs e)
+        {
+            ClientModel passenger = clientDropDown.SelectedItem as ClientModel;
+            UpdateClient frm = new UpdateClient(this, passenger);
+            frm.Show();
+
+        }
+
+        public void UpdateClientComplete(ClientModel model)
+        {
+            UpdateInfo(model.ID_Passageiro);
 
         }
     }

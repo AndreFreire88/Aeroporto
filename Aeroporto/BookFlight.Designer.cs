@@ -47,6 +47,7 @@
             this.bookbutton = new System.Windows.Forms.Button();
             this.clientBagsLabel = new System.Windows.Forms.Label();
             this.deleteBagBtn = new System.Windows.Forms.Button();
+            this.updateClientInfo = new System.Windows.Forms.Button();
             this.clientInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -242,12 +243,24 @@
             this.deleteBagBtn.UseVisualStyleBackColor = true;
             this.deleteBagBtn.Click += new System.EventHandler(this.deleteBagBtn_Click);
             // 
+            // updateClientInfo
+            // 
+            this.updateClientInfo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.updateClientInfo.Location = new System.Drawing.Point(857, 226);
+            this.updateClientInfo.Name = "updateClientInfo";
+            this.updateClientInfo.Size = new System.Drawing.Size(99, 36);
+            this.updateClientInfo.TabIndex = 28;
+            this.updateClientInfo.Text = "Update";
+            this.updateClientInfo.UseVisualStyleBackColor = true;
+            this.updateClientInfo.Click += new System.EventHandler(this.updateClientInfo_Click);
+            // 
             // BookFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(968, 619);
+            this.Controls.Add(this.updateClientInfo);
             this.Controls.Add(this.deleteBagBtn);
             this.Controls.Add(this.clientBagsLabel);
             this.Controls.Add(this.bookbutton);
@@ -293,5 +306,6 @@
         private System.Windows.Forms.Button bookbutton;
         private System.Windows.Forms.Label clientBagsLabel;
         private System.Windows.Forms.Button deleteBagBtn;
+        private System.Windows.Forms.Button updateClientInfo;
     }
 }

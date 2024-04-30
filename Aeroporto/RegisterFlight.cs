@@ -18,11 +18,11 @@ namespace Aeroporto
         {
             InitializeComponent();
             callingForm = caller;
-            Gettimedateform();
         }
 
         private void registerFlightBtn_Click(object sender, EventArgs e)
         {
+
 
             if (ValidateForm())
             {
@@ -31,27 +31,18 @@ namespace Aeroporto
                     companyValueTextBox.Text,
                     fromValueTextBox.Text,
                     toValueTextBox.Text,
-                    departureValueTextBox.Text,
-                    arriveValueTextBox.Text,
+                    departureDateValue.Text,
+                    arriveDateValue.Text,
                     capacityValueTextBox.Text);
 
                 GlobalConfig.Connection.CreateFlight(model);
-                callingForm.FlightComplete();
+                callingForm.FlightComplete(model);
 
                 Close();
             }
             else
                 MessageBox.Show("Error", "Error");
 
-
-        }
-
-        private void Gettimedateform()
-        {
-            DateTime date = DateTime.Now;
-
-            departureValueTextBox.Text = date.ToString();
-            arriveValueTextBox.Text = date.ToString();
 
         }
 
@@ -69,13 +60,16 @@ namespace Aeroporto
             if (toValueTextBox.Text.Length == 0)
                 return false;
 
-            if (!DateTime.TryParse(departureValueTextBox.Text, out DateTime hora))            
-                return false;
-            
-            if(!DateTime.TryParse(arriveValueTextBox.Text, out DateTime result))
+            if (!DateTime.TryParse(departureDateValue.Text, out DateTime partida))
                 return false;
 
-            if(!int.TryParse(capacityValueTextBox.Text,out int capacidade))
+            if (!DateTime.TryParse(arriveDateValue.Text, out DateTime chegada))
+                return false;
+
+            if (partida >  chegada) 
+                return false;
+
+            if (!int.TryParse(capacityValueTextBox.Text,out int capacidade))
                 return false;
 
             return true;
